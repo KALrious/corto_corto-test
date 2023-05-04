@@ -1,24 +1,24 @@
-import "./style.css";
-import typescriptLogo from "./typescript.svg";
-import viteLogo from "/vite.svg";
-import { setupCounter } from "./counter.ts";
+const images = document.querySelectorAll(".image");
 
-document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`;
+console.log(images);
 
-setupCounter(document.querySelector<HTMLButtonElement>("#counter")!);
+// Parcourir toutes les images et ajouter un événement "mouseover"
+images.forEach((image) => {
+  image.addEventListener("mouseover", () => {
+    // Récupérer l'élément parent de l'image
+    const parent = image.parentNode as Element;
+    console.log("parent", parent);
+
+    // Ajouter la classe "hover" à l'élément parent
+    parent?.classList?.add("hover");
+  });
+
+  // Ajouter un événement "mouseout"
+  image.addEventListener("mouseout", () => {
+    // Récupérer l'élément parent de l'image
+    const parent = image.parentNode as Element;
+
+    // Supprimer la classe "hover" de l'élément parent
+    parent?.classList.remove("hover");
+  });
+});
